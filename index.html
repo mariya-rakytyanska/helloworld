@@ -25,12 +25,22 @@
  
 <body>
 
-<h1>Hello, world!v2.1</h1>
+<h1>Hello, world!v2.2</h1>
  <div id="map"></div>
    <script>
-	var imageUrl = 'https://mariya-rakytyanska.github.io/helloworld/Screenshot%202019-12-02%20at%2019.46.03.png',
-   		 imageBounds = [[46.178011, 6.116826], [46.185139, 6.129076]];
-	var map = L.map('map').fitWorld();
+	//var imageUrl = 'https://mariya-rakytyanska.github.io/helloworld/Screenshot%202019-12-02%20at%2019.46.03.png',
+   		 //imageBounds = [[46.178011, 6.116826], [46.185139, 6.129076]];
+        var imageUrl = 'https://mariya-rakytyanska.github.io/helloworld/Screenshot%202019-12-02%20at%2020.53.23.png',
+   		 imageBounds = [[46.222569, 6.148743], [46.223711, 6.150798]];
+	  
+	var map = L.map('map', {  
+		       attributionControl: false, 
+		       zoomControl: false,
+		       zoom: 18,
+		       minZoom: 18,
+		       maxZoom: 18,
+		       maxBounds: imageBounds
+		       });
 
 	L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
 		maxZoom: 18,
@@ -41,6 +51,7 @@
 	}).addTo(map);
 
 	L.imageOverlay(imageUrl, imageBounds).addTo(map);
+	L.imageOverlay(imageUrlh, imageBoundsh).addTo(map);
 	   
 	function onLocationFound(e) {
 		var radius = e.accuracy / 2;
